@@ -53,7 +53,6 @@ def get_voxel_bbox(vox):
 
     return xmin,xmax+1,ymin,ymax+1,zmin,zmax+1
 
-# 裁剪体素数据
 def crop_voxel(vox, mask_margin,xmin,xmax,ymin,ymax,zmin,zmax):
     xspan = xmax-xmin
     yspan = ymax-ymin
@@ -85,21 +84,5 @@ def recover_voxel_uni(vox,mask_margin,real_size,xmin,xmax,ymin,ymax,zmin,zmax):
     xmax_ = vox.shape[0] - mask_margin[0]
     ymax_ = vox.shape[1] - mask_margin[1]
     zmax_ = vox.shape[2] - mask_margin[2]
-    tmpvox[xmin:xmax,ymin:ymax,zmin:zmax] = vox[xmin_:xmax_,ymin_:ymax_,zmin_:zmax_]
-    return tmpvox
-
-def recover_voxel(vox,mask_margin,real_size,xmin,xmax,ymin,ymax,zmin,zmax):
-    tmpvox = np.zeros([real_size,real_size,real_size], np.float32)
-    xmin_,ymin_,zmin_ = mask_margin # (13, 14, 12)
-    xmax_ = vox.shape[0] - mask_margin[0]
-    ymax_ = vox.shape[1] - mask_margin[1]
-    zmax_ = vox.shape[2] - mask_margin[2]
-    xmin = xmin_
-    ymin = ymin_
-    zmin = zmin_
-    xmax = xmax_
-    ymax = ymax_
-    zmax = zmax_
-
     tmpvox[xmin:xmax,ymin:ymax,zmin:zmax] = vox[xmin_:xmax_,ymin_:ymax_,zmin_:zmax_]
     return tmpvox
