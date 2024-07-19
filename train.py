@@ -9,8 +9,8 @@ import torch.optim as optim
 import torch.nn.functional as F
 
 from scipy.ndimage import gaussian_filter
-from models.GAN3D import Discriminator, Generator, Predictor
-from utils import get_vox_from_binvox, get_voxel_bbox, data_save, crop_voxel, recover_voxel
+from GAN3D import Discriminator, Generator, Predictor
+from data_processing.utils import get_vox_from_binvox, get_voxel_bbox, data_save, crop_voxel, recover_voxel
 import binvox_rw
 
 parser = argparse.ArgumentParser()
